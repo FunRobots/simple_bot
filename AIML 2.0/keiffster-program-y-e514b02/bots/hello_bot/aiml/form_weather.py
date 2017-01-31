@@ -2,13 +2,20 @@ from weather import Weather
 import sys
 
 base_path = sys.path[0]
+
+cities = {'москве': 'moscow',
+		  'благовещенске': 'blagoveschensk'}
+
 w = Weather(appid='9c321878cd88f7d6721253a59639816f')
 
-weather_info = w.get_weather()
+weather_aiml = ''
 
-weather_aiml = '<category>\n\t <pattern> ПОГОДА </pattern>\n\t' + \
-				'<template>\n\t\t' + weather_info + '\n\t</template>\n' + \
-				'</category>\n'
+for city in cities.keys():
+	weather_info = w.get_weather(cities[city])
+
+	weather_aiml += '<category>\n\t <pattern> ПОГОДА В ' + city.upper() +  '</pattern>\n\t' + \
+					'<template>\n\t\t' + weather_info + '\n\t</template>\n' + \
+					'</category>\n\n'
 				
 
 
