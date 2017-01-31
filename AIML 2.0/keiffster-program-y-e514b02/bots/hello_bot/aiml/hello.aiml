@@ -1,0 +1,85 @@
+<?xml  version="1.0.1" encoding="UTF-8"?>
+<aiml>
+
+<category>
+    <pattern>ПРИВЕТ</pattern>
+    <template>
+        <random>
+        	<li>привет <get name="user_name"/></li>
+        	<li>приветик <get name="user_name"/></li>
+        	<li>здорово <get name="user_name"/></li>
+        	<li>здравствуй <get name="user_name"/></li>        	
+        </random>
+    </template>
+</category>
+
+
+<category>
+    <pattern>КАК ДЕЛА</pattern>
+    <template>
+        <random>
+        	<li>хорошо</li>
+        	<li>ужасно</li>
+        	<li>зер гут!</li>
+        </random>
+        <think><set name="state">how_are_you</set></think>
+        <condition name="state" value="how_are_you">
+        	А ты как?
+        </condition>
+    </template>
+</category>
+
+
+<category>
+    <pattern>ПРИВЕТ КАК ДЕЛА</pattern>
+    <template>
+        <random>
+        	<li>привет хорошо</li>
+        	<li>приветик хорошо</li>
+        	<li>привет ужасно</li>
+        	<li>приветик, зер гут!</li>
+        </random>
+        <think><set name="state">how_are_you</set></think>
+        <condition name="state" value="how_are_you">
+        	А ты как?
+        </condition>
+    </template>
+</category>
+
+<category>
+	<pattern>ХОРОШО</pattern>
+	<template>
+		<condition name="state" value="how_are_you">
+        	рад за тебя, <get name="user_name"/>
+        </condition>
+        
+        <condition name="state" value="">
+        	не понял тебя)
+        	
+        </condition>
+	</template>
+</category>
+
+
+<category>
+	<pattern>ПЛОХО</pattern>
+	<template>
+		<condition name="state" value="how_are_you">
+        	жаль тебя, <get name="user_name"/>
+        </condition>
+        
+        <condition name="state" value="">
+        	не понял тебя)
+        	
+        </condition>
+	</template>
+</category>
+
+<category>
+	<pattern>МЕНЯ ЗОВУТ *</pattern>
+	<template>
+		приятно познакомиться, <set name="user_name"><star/></set> !
+	</template>
+</category>
+  
+</aiml>
