@@ -4,74 +4,117 @@
 <category>
     <pattern>ПРИВЕТ</pattern>
     <template>
-        <random>
-        	<li>привет <get name="user_name"/></li>
-        	<li>приветик <get name="user_name"/></li>
-        	<li>здорово <get name="user_name"/></li>
-        	<li>здравствуй <get name="user_name"/></li>        	
-        </random>
+    	<condition name="user_name" value="unknown">
+    		<set name="user_name"> </set>
+    	</condition>
+    	<condition name="hi_was" value="true">
+    		уже здоровались)
+    	</condition>
+    	
+    	 <condition name="hi_was" value="unknown">
+		    <random>
+		    	<li>привет <get name="user_name"/></li>
+		    	<li>приветик <get name="user_name"/></li>
+		    	<li>здорово <get name="user_name"/></li>
+		    	<li>здравствуй <get name="user_name"/></li>
+		    </random>
+		</condition>
+		<think><set name="hi_was">true</set></think>
     </template>
 </category>
+
+<category>
+    <pattern>ПРИВЕТИК</pattern>
+    <template>
+    	<srai>ПРИВЕТ</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>ЗДРАВСТВУЙ</pattern>
+    <template>
+    	<srai>ПРИВЕТ</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>ЗДОРОВО</pattern>
+    <template>
+    	<srai>ПРИВЕТ</srai>
+    </template>
+</category>
+
+
+<category>
+    <pattern>ДОБРЫЙ ДЕНЬ</pattern>
+    <template>
+    	<random>
+    		<li>добрый день</li>
+    		<li>добрый</li>
+    	</random>
+    </template>
+</category>
+
+<category>
+    <pattern>ДОБРЫЙ ВЕЧЕР</pattern>
+    <template>
+    	<random>
+    		<li>добрый вечер</li>
+    		<li>добрый</li>
+    	</random>
+    </template>
+</category>
+
+<category>
+    <pattern>ДОБРОЕ УТРО</pattern>
+    <template>
+    	<random>
+    		<li>доброе утро</li>
+    		<li>доброе</li>
+    	</random>
+    </template>
+</category>
+
 
 
 <category>
     <pattern>КАК ДЕЛА</pattern>
     <template>
+    	<condition name="user_name" value="unknown">
+    		<set name="user_name"> </set>
+    	</condition>
         <random>
         	<li>хорошо</li>
+        	<li>отлично</li>
         	<li>ужасно</li>
         	<li>зер гут!</li>
         </random>
-        <think><set name="state">how_are_you</set></think>
-        <condition name="state" value="how_are_you">
-        	А ты как?
-        </condition>
+        А ты как?
     </template>
 </category>
 
-
 <category>
-    <pattern>ПРИВЕТ КАК ДЕЛА</pattern>
+    <pattern>* КАК ДЕЛА</pattern>
     <template>
-        <random>
-        	<li>привет хорошо</li>
-        	<li>приветик хорошо</li>
-        	<li>привет ужасно</li>
-        	<li>приветик, зер гут!</li>
-        </random>
-        <think><set name="state">how_are_you</set></think>
-        <condition name="state" value="how_are_you">
-        	А ты как?
-        </condition>
+   		<srai><star/></srai>
+        <srai>КАК ДЕЛА</srai>
     </template>
 </category>
 
 <category>
 	<pattern>ХОРОШО</pattern>
+	<that> * А ты как? </that>
 	<template>
-		<condition name="state" value="how_are_you">
-        	рад за тебя, <get name="user_name"/>
-        </condition>
-        
-        <condition name="state" value="">
-        	не понял тебя)
-        	
-        </condition>
+        рад за тебя, <get name="user_name"/>
 	</template>
 </category>
 
 
 <category>
 	<pattern>ПЛОХО</pattern>
+	<that> * А ты как? </that>
 	<template>
-		<condition name="state" value="how_are_you">
-        	жаль тебя, <get name="user_name"/>
-        </condition>
-        
-        <condition name="state" value="">
-        	не понял тебя)
-        	
-        </condition>
+       	жаль тебя, <get name="user_name"/>
 	</template>
 </category>
 

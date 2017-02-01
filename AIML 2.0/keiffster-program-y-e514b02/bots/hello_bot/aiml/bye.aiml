@@ -8,6 +8,8 @@
 				<li>до свидания <get name="user_name"/></li>
 				<li>прощай <get name="user_name"/></li>
 			</random>
+			<think><set name="user_name"></set></think>
+			<think><set name="hi_was"></set></think>
 		</template>
 	</category>
 	
