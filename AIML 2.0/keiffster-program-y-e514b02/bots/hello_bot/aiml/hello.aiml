@@ -2,23 +2,56 @@
 <aiml>
 
 <category>
+	<pattern>TIMEOFDAY *</pattern>
+	<template>
+		<think>
+			<set name="hour"><star/></set>
+			<condition name="hour">
+				<li value="04"><set name="tod">ДОБРОЕ УТРО</set></li>
+				<li value="05"><set name="tod">ДОБРОЕ УТРО</set></li>
+				<li value="06"><set name="tod">ДОБРОЕ УТРО</set></li>
+				<li value="07"><set name="tod">ДОБРОЕ УТРО</set></li>
+				<li value="08"><set name="tod">ДОБРОЕ УТРО</set></li>
+				<li value="09"><set name="tod">ДОБРОЕ УТРО</set></li>
+				<li value="10"><set name="tod">ДОБРОЕ УТРО</set></li>
+				<li value="11"><set name="tod">ДОБРОЕ УТРО</set></li>
+				
+				<li value="12"><set name="tod">ДОБРЫЙ ДЕНЬ</set></li>
+				<li value="13"><set name="tod">ДОБРЫЙ ДЕНЬ</set></li>
+				<li value="14"><set name="tod">ДОБРЫЙ ДЕНЬ</set></li>
+				<li value="15"><set name="tod">ДОБРЫЙ ДЕНЬ</set></li>
+				<li value="16"><set name="tod">ДОБРЫЙ ДЕНЬ</set></li>
+				
+				<li value="17"><set name="tod">ДОБРЫЙ ВЕЧЕР</set></li>
+				<li value="18"><set name="tod">ДОБРЫЙ ВЕЧЕР</set></li>
+				<li value="19"><set name="tod">ДОБРЫЙ ВЕЧЕР</set></li>
+				<li value="20"><set name="tod">ДОБРЫЙ ВЕЧЕР</set></li>
+				<li value="21"><set name="tod">ДОБРЫЙ ВЕЧЕР</set></li>
+				<li value="22"><set name="tod">ДОБРЫЙ ВЕЧЕР</set></li>
+				<li value="23"><set name="tod">ДОБРЫЙ ВЕЧЕР</set></li>
+				
+				<li><set name="tod">ДОБРОЙ НОЧИ</set></li>				
+			</condition>
+		</think>
+	</template>
+</category>
+
+
+<category>
     <pattern>ПРИВЕТ</pattern>
     <template>
     	<condition name="user_name" value="unknown">
     		<set name="user_name"> </set>
     	</condition>
-    	<condition name="hi_was" value="true">
-    		уже здоровались)
-    	</condition>
-    	
-    	 <condition name="hi_was" value="unknown">
-		    <random>
-		    	<li>привет <get name="user_name"/></li>
-		    	<li>приветик <get name="user_name"/></li>
-		    	<li>здорово <get name="user_name"/></li>
-		    	<li>здравствуй <get name="user_name"/></li>
-		    </random>
-		</condition>
+    	<srai>TIMEOFDAY <date format="%H"/></srai>
+		<random>
+			<li>привет <get name="user_name"/></li>
+			<li>приветик <get name="user_name"/></li>
+			<li>здорово <get name="user_name"/></li>
+			<li>здравствуй <get name="user_name"/></li>
+			<li><get name="tod"/></li>
+		</random>
+		<condition name="hi_was" value="true"> уже здоровались)</condition>
 		<think><set name="hi_was">true</set></think>
     </template>
 </category>
@@ -74,8 +107,6 @@
     	</random>
     </template>
 </category>
-
-
 
 <category>
     <pattern>КАК ДЕЛА</pattern>
