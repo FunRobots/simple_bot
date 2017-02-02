@@ -1,0 +1,15 @@
+pyyaml
+
+requests
+flask
+sleekxmpp
+python-dateutil
+beautifulsoup4
+lxml
+fbchat
+
+wikipedia
+
+pylint
+nose
+coverage
