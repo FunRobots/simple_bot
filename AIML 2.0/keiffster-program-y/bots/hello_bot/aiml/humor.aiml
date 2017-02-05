@@ -1,66 +1,91 @@
 <?xml version="1.0.1" encoding="UTF-8"?>
 <aiml>
-<category> 
+
+<category>
 	<pattern> АНЕКДОТ </pattern>
 	<template>
-		<random>
-			<li>Сегодня опять забиваем сваи. Петров будет работать кувалдой. Вопросы есть? \n - Есть. Я только вчера работал кувалдой, и у меня ещё всё болит. Может, сегодня кувалдой поработает Сидоров? \n - Нет, Сидоров слишком лёгкий. Таким сваю не забьёшь.</li>
-			<li>[xxx]: Фишка седня...\n[xxx]: Приходит письмо мне заказное, от оператора мобильного... Мол, чувак, ты нам денег должен...\n[xxx]: А я реально должен, еще в августе симку закинул в дальний угол, не платил\n[xxx]: Там типа если не заплатишь, можем обратиться в суд\n[xxx]: Но сама фишка не в этом\n[xxx]: Подпись письма: начальник бла-бла отдела (!!!) А. В. Бубен\n[xxx]: Вот щас сижу и думаю, а не забыли ли они вопросительный знак в конце поставить?...\n'</li>
-			<li>Студент на экзамене по политологии не знает ни одного вопроса, вконец измученный добрый профессор, не желая срезать нерадивого студента показывает на портрет Карла Маркса:- Молодой человек, ну хоть кто это, вы знаете? Студент, после напряженного молчания: - Король пик?</li>
-			
-			<li>Из школьных сочинений:"Было тихо, как будто все вымерли... Какая красота!"</li>
-			
-			<li>Именно благодаря оборонительным войнам Московское княжество разрослось \n до размеров Российской Империи. \n </li>
-			
-			<li>Лимузин-это униженный автобус... </li>
-			<li>Animal: от пиратских дисков спасет только безлимитный интернет =))\n-=GoblinSUN=-: А от безлимитного интернета спасут всех Камчатские интренет провайдеры :D\n </li>
-			<li>Из сочинения:Раскольников проснулся и сладко потянулся за топором.</li>
-			<li>Идёт по улице людоед, тащит за собой двух студентов. Навстречу ему другой людоед:- Привет, кого есть собрался?- Да вот, решил на студентов переходить.- Дурень! Выбрось эту гадость! Я вчера тоже решил попробовать, так пока сварил суп, эта зараза всю капртошку выловила!</li>
-			<li>Табличка на двери кабинета врача: "Лечу горбатых. Врач Могила В.П.". \n</li>
-			
-		</random>
+		<system>python3 aiml/anecdotes.py --theme any </system>
+	</template>
+</category>
+
+<category>
+	<pattern> АНЕКДОТ * </pattern>
+	<template>
+		<system>python3 aiml/anecdotes.py --theme <star/> </system>
 	</template>	
 </category>
 
 <category> 
-	<pattern>* АНЕКДОТ </pattern>
+	<pattern> _ АНЕКДОТ </pattern>
 	<template>
 		<srai> АНЕКДОТ </srai>
 	</template>	
 </category>
 
 <category> 
-	<pattern>* АНЕКДОТИК </pattern>
+	<pattern> _ АНЕКДОТ * * </pattern>
+	<template>
+		<srai> АНЕКДОТ <star index="3"/></srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern> _ АНЕКДОТИК </pattern>
+	<template>
+		<srai> АНЕКДОТ </srai>
+	</template>	
+</category>
+
+
+<category> 
+	<pattern> _ АНЕКДОТИК * * </pattern>
+	<template>
+		<srai> АНЕКДОТ <star index="3"/> </srai>
+	</template>	
+</category>
+
+
+<category> 
+	<pattern> _ ШУТКУ </pattern>
 	<template>
 		<srai> АНЕКДОТ </srai>
 	</template>	
 </category>
 
 <category> 
-	<pattern>* ШУТКУ </pattern>
+	<pattern> _ ШУТКУ * * </pattern>
+	<template>
+		<srai> АНЕКДОТ <star index="3"/></srai>
+	</template>	
+</category>
+
+
+<category> 
+	<pattern> _ ПОШУТИТЬ </pattern>
 	<template>
 		<srai> АНЕКДОТ </srai>
 	</template>	
 </category>
 
 <category> 
-	<pattern>* ПОШУТИТЬ </pattern>
+	<pattern> _ ПОШУТИТЬ * * </pattern>
+	<template>
+		<srai> АНЕКДОТ <star index="3"/> </srai>
+	</template>	
+</category>
+
+
+<category> 
+	<pattern> ПОШУТИ </pattern>
 	<template>
 		<srai> АНЕКДОТ </srai>
 	</template>	
 </category>
 
 <category> 
-	<pattern>ПОШУТИ </pattern>
+	<pattern> ПОШУТИ * * </pattern>
 	<template>
-		<srai> АНЕКДОТ </srai>
-	</template>	
-</category>
-
-<category> 
-	<pattern>ПОШУТИ * </pattern>
-	<template>
-		<srai> АНЕКДОТ </srai>
+		<srai> АНЕКДОТ <star index="3"/></srai>
 	</template>	
 </category>
 

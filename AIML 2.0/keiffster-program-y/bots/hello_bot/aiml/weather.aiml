@@ -1,15 +1,9 @@
 <?xml version="1.0.1" encoding="UTF-8"?>
 <aiml><category>
-	 <pattern> ПОГОДА В МОСКВЕ</pattern>
+	 <pattern> ПОГОДА В *</pattern>
 	<template>
-		Температура: -7 Давление: 1026 Влажность:67 Ветер:3 м/с, западный
-	</template>
-</category>
-
-<category>
-	 <pattern> ПОГОДА В БЛАГОВЕЩЕНСКЕ</pattern>
-	<template>
-		Температура: -11 Давление: 1016 Влажность:61 Ветер:1 м/с, южный
+		Погода в <star/>: 
+		<system> python3 aiml/get_weather.py --city_name <star/></system>
 	</template>
 </category>
 
@@ -21,103 +15,117 @@
 </category>
 
 <category> 
-	<pattern>* ПОГОДА </pattern>
+	<pattern> _ ПОГОДА </pattern>
 	<template>
 		<srai> ПОГОДА В МОСКВЕ</srai>
 	</template>	
 </category>
 
 <category> 
-	<pattern>* ПОГОДЕ </pattern>
+	<pattern> _ ПОГОДА В *</pattern>
+	<template>
+		<srai> ПОГОДА В <star index="2"/></srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern> _ ПОГОДЕ </pattern>
 	<template>
 		<srai> ПОГОДА В МОСКВЕ</srai>
 	</template>	
 </category>
 
 <category> 
-	<pattern>* ПОГОДУ </pattern>
+	<pattern> _ ПОГОДЕ В *</pattern>
+	<template>
+		<srai> ПОГОДА В <star index="2"/></srai>
+	</template>	
+</category>
+
+
+<category> 
+	<pattern> _ ПОГОДУ </pattern>
 	<template>
 		<srai> ПОГОДА В МОСКВЕ</srai>
 	</template>	
 </category>
 
 <category> 
-	<pattern>* ПОГОДКА </pattern>
+	<pattern> _ ПОГОДУ В *</pattern>
 	<template>
-		<srai> ПОГОДА В МОСКВЕ</srai>>
+		<srai> ПОГОДА В <star index="2"/></srai>
 	</template>	
 </category>
 
 <category> 
-	<pattern>* ПОГОДКЕ </pattern>
+	<pattern> _ ПОГОДКА </pattern>
 	<template>
 		<srai> ПОГОДА В МОСКВЕ</srai>
 	</template>	
 </category>
 
 <category> 
-	<pattern>* ПОГОДКЕ </pattern>
+	<pattern> _ ПОГОДКА В * </pattern>
+	<template>
+		<srai> ПОГОДА В <star index="2"/></srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern> _ ПОГОДКЕ </pattern>
 	<template>
 		<srai> ПОГОДА В МОСКВЕ</srai>
 	</template>	
 </category>
 
 <category> 
-	<pattern> ПОГОДКА </pattern>
+	<pattern> _ ПОГОДКЕ В *</pattern>
+	<template>
+		<srai> ПОГОДА В <star index="2"/></srai>
+	</template>	
+</category>
+
+<category> 
+	<pattern> _ ПОГОДКУ </pattern>
 	<template>
 		<srai> ПОГОДА В МОСКВЕ</srai>
 	</template>	
 </category>
 
-#--------------------------------------------------
-
 <category> 
-	<pattern>* ПОГОДА В * </pattern>
+	<pattern> _ ПОГОДКУ В *</pattern>
 	<template>
 		<srai> ПОГОДА В <star index="2"/></srai>
 	</template>	
 </category>
 
-<category> 
-	<pattern>* ПОГОДЕ В *</pattern>
+<category>
+	<pattern> _ ПОГОДОЙ </pattern>
 	<template>
-		<srai> ПОГОДА В <star index="2"/></srai>
-	</template>	
+		<srai> ПОГОДА В МОСКВЕ </srai>
+	</template>
 </category>
 
-<category> 
-	<pattern>* ПОГОДУ В *</pattern>
+<category>
+	<pattern> _ ПОГОДОЙ *</pattern>
 	<template>
-		<srai> ПОГОДА В <star index="2"/></srai>
-	</template>	
+		<srai> ПОГОДА В <star index="2"/> </srai>
+	</template>
 </category>
 
-<category> 
-	<pattern>* ПОГОДКА В *</pattern>
+
+<category>
+	<pattern> _ ПОГОДКОЙ </pattern>
 	<template>
-		<srai> ПОГОДА В <star index="2"/></srai>
-	</template>	
+		<srai> ПОГОДА В МОСКВЕ </srai>
+	</template>
 </category>
 
-<category> 
-	<pattern>* ПОГОДКЕ В *</pattern>
+<category>
+	<pattern> _ ПОГОДКОЙ *</pattern>
 	<template>
-		<srai> ПОГОДА В <star index="2"/></srai>
-	</template>	
-</category>
-
-<category> 
-	<pattern>* ПОГОДКЕ В *</pattern>
-	<template>
-		<srai> ПОГОДА В <star index="2"/></srai>
-	</template>	
-</category>
-
-<category> 
-	<pattern> ПОГОДКА В *</pattern>
-	<template>
-		<srai> ПОГОДА В <star index="2"/></srai>
-	</template>	
+		<srai> ПОГОДА В <star index="2"/> </srai>
+	</template>
 </category>
 
 </aiml>
